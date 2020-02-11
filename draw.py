@@ -1,15 +1,16 @@
 from display import *
 
+
 def draw_line(x0, y0, x1, y1, screen, color):
     if (x0 > x1):
         x0, y0, x1, y1 = x1, y1, x0, y0
     try:
         slope = (y1 - y0) / (x1 - x0)
-        if (0 <= slope < 1):
+        if (0 <= slope <= 1):
             octant1(x0, y0, x1, y1, screen, color)
-        elif (slope >= 1):
+        elif (slope > 1):
             octant2(x0, y0, x1, y1, screen, color)
-        elif (slope <= -1):
+        elif (slope < -1):
             octant7(x0, y0, x1, y1, screen, color)
         else:
             octant8(x0, y0, x1, y1, screen, color)
@@ -21,8 +22,8 @@ def draw_line(x0, y0, x1, y1, screen, color):
 
 def octant1(x0, y0, x1, y1, screen, color):
     A = y1 - y0
-    B = x1 - x0
-    d = (2 * A) + B
+    B = -1 * (x1 - x0)
+    d = (2 * A) - B
     A *= 2
     B *= 2
     while (x0 <= x1):
@@ -36,7 +37,7 @@ def octant1(x0, y0, x1, y1, screen, color):
 
 def octant2(x0, y0, x1, y1, screen, color):
     A = y1 - y0
-    B = x1 - x0
+    B = -1 * (x1 - x0)
     d = A + (2 * B)
     A *= 2
     B *= 2
@@ -51,7 +52,7 @@ def octant2(x0, y0, x1, y1, screen, color):
 
 def octant7(x0, y0, x1, y1, screen, color):
     A = y1 - y0
-    B = x1 - x0
+    B = -1 * (x1 - x0)
     d = A - (2 * B)
     A *= 2
     B *= 2
@@ -66,8 +67,8 @@ def octant7(x0, y0, x1, y1, screen, color):
 
 def octant8(x0, y0, x1, y1, screen, color):
     A = y1 - y0
-    B = x1 - x0
-    d = (2 * A) - B
+    B = -1 * (x1 - x0)
+    d = (2 * A) + B
     A *= 2
     B *= 2
     while (x0 <= x1):
