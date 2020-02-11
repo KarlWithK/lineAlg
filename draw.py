@@ -6,11 +6,11 @@ def draw_line(x0, y0, x1, y1, screen, color):
         x0, y0, x1, y1 = x1, y1, x0, y0
     try:
         slope = (y1 - y0) / (x1 - x0)
-        if (0 <= slope <= 1):
+        if (0 <= slope < 1):
             octant1(x0, y0, x1, y1, screen, color)
-        elif (slope > 1):
+        elif (slope >= 1):
             octant2(x0, y0, x1, y1, screen, color)
-        elif (slope < -1):
+        elif (slope <= -1):
             octant7(x0, y0, x1, y1, screen, color)
         else:
             octant8(x0, y0, x1, y1, screen, color)
