@@ -23,7 +23,7 @@ def draw_line(x0, y0, x1, y1, screen, color):
 def octant1(x0, y0, x1, y1, screen, color):
     A = y1 - y0
     B = -1 * (x1 - x0)
-    D = (2 * A) - B
+    D = (2 * A) + B
     A *= 2
     B *= 2
     while (x0 <= x1):
@@ -68,7 +68,7 @@ def octant7(x0, y0, x1, y1, screen, color):
 def octant8(x0, y0, x1, y1, screen, color):
     A = y1 - y0
     B = -1 * (x1 - x0)
-    D = (2 * A) + B
+    D = (2 * A) - B
     A *= 2
     B *= 2
     while (x0 <= x1):
@@ -88,7 +88,7 @@ def draw_line_one(x0, y0, x1, y1, screen, color):
         A = y1 - y0
         B = -1 * (x1 - x0)
         if (0 <= slope < 1):
-            D = (2 * A) - B
+            D = (2 * A) + B
             A *= 2
             B *= 2
             while (x0 <= x1):
@@ -121,7 +121,7 @@ def draw_line_one(x0, y0, x1, y1, screen, color):
                 y0 -= 1
                 D -= B
         else:
-            D = (2 * A) + B
+            D = (2 * A) - B
             A *= 2
             B *= 2
             while (x0 <= x1):
