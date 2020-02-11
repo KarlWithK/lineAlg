@@ -5,20 +5,19 @@ def draw_line(x0, y0, x1, y1, screen, color):
     if (x0 > x1):
         x0, y0, x1, y1 = x1, y1, x0, y0
     try:
-        slope = (y1 - y0) / (x1 - x0);
+        slope = (y1 - y0) / (x1 - x0)
+        if (slope < 1):
+            octant1(x0, y0, x1, y1, screen, color)
+        elif (slope >= 1):
+            octant2(x0, y0, x1, y1, screen, color)
+        elif (slope <= -1):
+            octant7(x0, y0, x1, y1, screen, color)
+        else:
+            octant8(x0, y0, x1, y1, screen, color)
     except ZeroDivisionError:
-        slope = 1;
         while (y0 <= y1):
-            plot(screen, color, int(x0), int(y0));
-            y0 += 1;
-    if (slope < 1):
-        octant1(x0, y0, x1, y1, screen, color)
-    elif (slope >= 1):
-        octant2(x0, y0, x1, y1, screen, color)
-    elif (slope <= -1):
-        octant7(x0, y0, x1, y1, screen, color)
-    else:
-        octant8(x0, y0, x1, y1, screen, color)
+            plot(screen, color, int(x0), int(y0))
+            y0 += 1
 
 
 def octant1(x0, y0, x1, y1, screen, color):
